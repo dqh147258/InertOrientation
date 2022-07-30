@@ -1,8 +1,10 @@
 # InertOrientation
-get Android phone orientation when activity is portrait or landscape
+Get Android phone orientation when activity is locked with portrait or landscape
+
+[![](https://www.jitpack.io/v/dqh147258/InertOrientation.svg)](https://www.jitpack.io/#dqh147258/InertOrientation)
+
 
 ## How to use
-
 you can simply use it such as:
 
 ```kotlin
@@ -20,8 +22,27 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
+
+## Add dependencies
+
+Add it in your root build.gradle at the end of repositories:
+```groovy
+	allprojects {
+		repositories {
+			//...
+			maven { url 'https://www.jitpack.io' }
+		}
+	}
+```
+Add the dependency
+```groovy
+dependencies {
+	        implementation 'com.github.dqh147258:InertOrientation:1.0.+'
+	}
+```
+
 The orientation result value is:
-- 0 -> 0°
-- 1 -> 90°
-- 2 -> 180°
-- 3 -> 270°
+- 0 -> 0° (default portrait)
+- 1 -> 90° (right landscape)
+- 2 -> 180° (up portrait)
+- 3 -> 270° (left landscape)
