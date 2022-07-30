@@ -23,6 +23,12 @@ class MainActivity : AppCompatActivity() {
 ```
 
 
+The orientation result value is:
+- 0 -> 0° (default portrait)
+- 1 -> 90° (right landscape)
+- 2 -> 180° (up portrait)
+- 3 -> 270° (left landscape)
+
 ## Add dependencies
 
 Add it in your root build.gradle at the end of repositories:
@@ -40,9 +46,3 @@ dependencies {
 	        implementation 'com.github.dqh147258:InertOrientation:1.0.+'
 	}
 ```
-
-The orientation result value is:
-- 0 -> 0° (default portrait)
-- 1 -> 90° (right landscape)
-- 2 -> 180° (up portrait)
-- 3 -> 270° (left landscape)
