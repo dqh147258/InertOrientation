@@ -9,10 +9,10 @@ open class InertOrientationChangedListener(private val context: Context, private
 
         private const val OFFSET = 30
 
-        private const val DEFAULT_LOCATION = 0
+        private const val INVALID_ORIENTATION = -1
     }
 
-    private var orientation: Int = DEFAULT_LOCATION
+    private var orientation: Int = INVALID_ORIENTATION
 
     private val eventListener by lazy {
         object : OrientationEventListener(context) {
@@ -32,8 +32,10 @@ open class InertOrientationChangedListener(private val context: Context, private
 
 
 
-
     private fun setOrientationIfChanged(angle: Int) {
+        if (orientation == INVALID_ORIENTATION) {
+            adjustOrientation(angle)
+        }
         val currentAngle = orientation * 90
         val abs = Math.abs((currentAngle - angle + 360) % 360)
         if ((abs > 45 + offsetAngle && abs <= 180) || (abs < 315 - offsetAngle && abs >= 180)) {
