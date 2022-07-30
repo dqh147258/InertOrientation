@@ -5,24 +5,21 @@ import android.view.OrientationEventListener
 
 open class InertOrientationChangedListener(
     private val context: Context,
-    private val offsetAngle: Int = 30,
+    private val offsetAngle: Int = DEFAULT_OFFSET_ANGLE,
     private val callback: (Int) -> Unit
 ) {
 
     companion object {
 
-        private const val OFFSET = 30
+        const val DEFAULT_OFFSET_ANGLE = 30
 
-        private const val INVALID_ORIENTATION = -1
+        const val INVALID_ORIENTATION = -1
     }
 
     private var orientation: Int = INVALID_ORIENTATION
 
     val currentOrientation: Int
         get() {
-            if (orientation == INVALID_ORIENTATION) {
-                return 0
-            }
             return orientation
         }
 

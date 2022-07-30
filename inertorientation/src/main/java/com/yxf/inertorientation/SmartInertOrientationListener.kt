@@ -9,7 +9,7 @@ import androidx.lifecycle.LifecycleOwner
 class SmartInertOrientationListener(
     private val context: Context,
     lifecycleOwner: LifecycleOwner,
-    private val offsetAngle: Int = 30,
+    private val offsetAngle: Int = DEFAULT_OFFSET_ANGLE,
     private val callback: (Int) -> Unit
 ) : InertOrientationChangedListener(context, offsetAngle, callback) {
 
