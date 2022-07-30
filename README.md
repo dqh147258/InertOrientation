@@ -42,7 +42,7 @@ Add it in your root build.gradle at the end of repositories:
 ```
 Add the dependency
 ```groovy
-dependencies {
+    dependencies {
 	        implementation 'com.github.dqh147258:InertOrientation:1.0.+'
 	}
 ```
