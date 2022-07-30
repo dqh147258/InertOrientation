@@ -3,7 +3,11 @@ package com.yxf.inertorientation
 import android.content.Context
 import android.view.OrientationEventListener
 
-open class InertOrientationChangedListener(private val context: Context, private val offsetAngle: Int = 30,private val callback: (Int) -> Unit) {
+open class InertOrientationChangedListener(
+    private val context: Context,
+    private val offsetAngle: Int = 30,
+    private val callback: (Int) -> Unit
+) {
 
     companion object {
 
@@ -13,6 +17,14 @@ open class InertOrientationChangedListener(private val context: Context, private
     }
 
     private var orientation: Int = INVALID_ORIENTATION
+
+    val currentOrientation: Int
+        get() {
+            if (orientation == INVALID_ORIENTATION) {
+                return 0
+            }
+            return orientation
+        }
 
     private val eventListener by lazy {
         object : OrientationEventListener(context) {
@@ -29,7 +41,6 @@ open class InertOrientationChangedListener(private val context: Context, private
     fun disable() {
         eventListener.disable()
     }
-
 
 
     private fun setOrientationIfChanged(angle: Int) {
